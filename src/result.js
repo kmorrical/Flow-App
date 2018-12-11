@@ -1,6 +1,5 @@
+//@flow
 import React, { Component } from 'react';
-
-// @flow
 
 type Props = {
   result: number

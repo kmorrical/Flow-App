@@ -1,13 +1,12 @@
+//@flow
 import React, { Component } from 'react';
 import './App.css';
 import Result from './result.js';
 
-// @flow
-
 type Props = { /* ... */ };
 
 type State = {
-  count: number,
+  result: number,
   result: number,
   input1: number,
   input2: number,
@@ -23,18 +22,18 @@ function sample(x: number, y: number) {
 class App extends Component<Props, State>{
   state = {
     count: 0,
-    result: null,
+    result: 0,
     input1: 0,
     input2: 0
   };
 
   getInput1 = (event: SyntheticEvent<HTMLInputElement>) => {
-    this.setState({result: null});
+    this.setState({result: 0});
     this.setState({input1: parseInt(event.currentTarget.value)});
   }
 
   getInput2 = (event: SyntheticEvent<HTMLInputElement>) => {
-    this.setState({result: null});
+    this.setState({result: 0});
     this.setState({input2: parseInt(event.currentTarget.value)});
   }
 
@@ -65,7 +64,7 @@ class App extends Component<Props, State>{
           <input onChange={this.getInput2}/>
           <br />
           <button onClick={this.add}>Go!</button>
-          {this.state.result !== null ?
+          {this.state.result !== 0 ?
             <Result result={this.state.result} />
             : null
           }
