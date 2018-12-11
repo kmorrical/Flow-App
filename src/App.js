@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Result from './result.js';
 
 // @flow
 
@@ -13,9 +13,12 @@ type State = {
   input2: number,
 };
 
-// function sample(x: number, y: number) {
-//
-// }
+function sample(x: number, y: number) {
+ // console.log(x);
+ // console.log(y);
+ // const sampleRes = x + y;
+ // console.log(sampleRes);
+}
 
 class App extends Component<Props, State>{
   state = {
@@ -36,6 +39,7 @@ class App extends Component<Props, State>{
   }
 
   add = (event: SyntheticEvent<HTMLButtonElement>) => {
+    //sample(this.state.input1, this.state.input2);
     const x = this.state.input1 + this.state.input2;
     this.setState({result: x});
   }
@@ -61,7 +65,10 @@ class App extends Component<Props, State>{
           <input onChange={this.getInput2}/>
           <br />
           <button onClick={this.add}>Go!</button>
-          {this.state.result !== null ? <p color="lightblue">Result: {this.state.result}</p> : null}
+          {this.state.result !== null ?
+            <Result result={this.state.result} />
+            : null
+          }
         </header>
       </div>
     );
